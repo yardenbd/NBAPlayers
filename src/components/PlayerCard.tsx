@@ -27,11 +27,7 @@ export const PlayerCard: React.FC<{ playerAttributes: IPlayer }> = ({
   };
 
   useEffect(() => {
-    if (isPlayerInFavorites) {
-      setShouldFillStar(true);
-    } else {
-      setShouldFillStar(false);
-    }
+      setShouldFillStar(!!isPlayerInFavorites);
   }, [isPlayerInFavorites]);
 
   return (

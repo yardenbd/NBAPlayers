@@ -21,4 +21,5 @@ export interface IPlayer {
 export interface IPlayerSlice {
   players: IPlayer[];
   favoritePlayers: IPlayer[];
+  hasError:boolean
 }

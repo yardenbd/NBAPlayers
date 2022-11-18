@@ -2,7 +2,11 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { IPlayer, IPlayerSlice } from "../../types";
 import { getNBAPlayers } from "../actions/players.action";
 
-const initialState: IPlayerSlice = { players: [], favoritePlayers: [] };
+const initialState: IPlayerSlice = {
+  players: [],
+  favoritePlayers: [],
+  hasError: false,
+};
 
 const playersSlice = createSlice({
   name: "playersSlice",
@@ -30,7 +34,7 @@ const playersSlice = createSlice({
         }
       )
       .addCase(getNBAPlayers.rejected, (state) => {
-        return state;
+        state.hasError = true;
       });
   },
 });
